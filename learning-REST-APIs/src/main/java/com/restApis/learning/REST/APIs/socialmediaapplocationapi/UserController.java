@@ -40,4 +40,9 @@ public class UserController {
                 .toUri();
         return ResponseEntity.created(location).build();
     }
+
+    @DeleteMapping("/users/{id}")
+    public void deleteById(@PathVariable int id) {
+        userDao.deleteUser(id);
+    }
 }

@@ -33,4 +33,9 @@ public class UserDao {
         user.setId(++id);
         userList.add(user);
     }
+
+    public void deleteUser(int id) {
+        Predicate<? super User> predicate = user -> user.getId() == id;
+        userList.removeIf(predicate);
+    }
 }
