@@ -1,5 +1,7 @@
 package com.restApis.learning.REST.APIs.socialmediaapplocationapi;
 
+import jakarta.validation.constraints.Past;
+import jakarta.validation.constraints.Size;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
@@ -7,7 +9,9 @@ import java.time.LocalDate;
 @Component
 public class User {
     private int id;
+    @Size(min = 2)
     private String name;
+    @Past
     private LocalDate localDate;
 
     public User() {

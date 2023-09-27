@@ -1,5 +1,6 @@
 package com.restApis.learning.REST.APIs.socialmediaapplocationapi;
 
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -31,7 +32,7 @@ public class UserController {
 
     //to add new user lets send post request
     @PostMapping("/users")
-    public ResponseEntity<Object> saveUser(@RequestBody User user) {
+    public ResponseEntity<Object> saveUser(@Valid @RequestBody User user) {
         userDao.saveUser(user);
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest()
